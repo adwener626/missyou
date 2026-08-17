@@ -1,0 +1,3 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import {readFile} from 'node:fs/promises';
+test('prototype contains golden-path destinations',async()=>{const app=await readFile('src/main.js','utf8');for(const text of ['Пока тебя не было','Первая экспедиция','Player Echo','data-tab="social"'])assert.ok(app.toLowerCase().includes(text.toLowerCase()),`missing ${text}`)});
+test('GDD covers requested systems',async()=>{const gdd=await readFile('docs/GDD.md','utf8');for(const text of ['Database schema','Anti-cheat','First 30 days','Monetization','MVP'])assert.ok(gdd.includes(text),`missing ${text}`)});
